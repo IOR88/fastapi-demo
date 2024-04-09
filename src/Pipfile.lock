@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "efae267d061cd8ea677de38be66c131370d1166727dd1993c88261270385995b"
+            "sha256": "0d4fa0a59c00fe697b27b6274b6e770cf4b93b53f4f162b8b229830142bafed0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -302,10 +302,6 @@
             "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==0.100.0"
-        },
-        "fastapi-demo": {
-            "editable": true,
-            "file": "."
         },
         "greenlet": {
             "hashes": [
