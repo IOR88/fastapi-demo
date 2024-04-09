@@ -65,3 +65,8 @@ CORS_ORIGINS = env.get('CORS_ORIGINS', '').split(',')
 ALLOWED_HOSTS = env.get('ALLOWED_HOSTS', '').split(',')
 
 DEBUG = bool(int(env.get('DEBUG', 0)))
+
+REDIS_HOST = env.get('REDIS_HOST')
+REDIS_PORT = env.get('REDIS_PORT')
+
+CELERY_BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}"

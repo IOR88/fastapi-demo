@@ -1,4 +1,5 @@
 import typing
+from typing import List
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.users import models, schema
@@ -17,3 +18,7 @@ async def create_user(db_session: AsyncSession, user: schema.SignupRequest) -> b
     data['password'] = schema.argon_ph.hash(data['password'])
     await sql_create_data(db_session, models.User(**data))
     return True
+
+
+async def get_all_users(db_session: AsyncSession) -> List[models.User]:
+    return (await db_session.execute(select(models.User))).all()
