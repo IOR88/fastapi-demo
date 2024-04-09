@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from uuid import UUID
 from enum import Enum
 from jose import jwt
-from pydantic import BaseModel, constr, EmailStr
+from pydantic import BaseModel, constr
 from fastapi import HTTPException
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
@@ -12,7 +12,7 @@ argon_ph = PasswordHasher()
 
 
 class SignupRequest(BaseModel):
-    email: EmailStr
+    email: str
     password: constr(min_length=8)
 
 

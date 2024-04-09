@@ -12,6 +12,12 @@ After run only fastapi with uvicorn
 pipenv run uvicorn app.main:app --reload
 ```
 
+and celery
+```bash
+pipenv run celery -A app.tasks worker -l INFO
+```
+-A app.tasks worker -l info
+
 In order to apply migrations run alembic
 ```bash
 alembic upgrade head
