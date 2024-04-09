@@ -1,0 +1,9 @@
+setup.py
+./app/main.py
+./app/models.py
+./app/settings.py
+fastapi_demo.egg-info/PKG-INFO
+fastapi_demo.egg-info/SOURCES.txt
+fastapi_demo.egg-info/dependency_links.txt
+fastapi_demo.egg-info/namespace_packages.txt
+fastapi_demo.egg-info/top_level.txt

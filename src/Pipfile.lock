@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4ffa5ad5790a0ce81cbf5cca8284a813a7fcf6d1d5e1a80d81dbe120305169f4"
+            "sha256": "99ee974ca9fb5e06fca82b25f188c1f03767a4cb815828e520216632931e5f03"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -57,6 +57,10 @@
             "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==0.100.0"
+        },
+        "fastapi-demo": {
+            "editable": true,
+            "file": "."
         },
         "greenlet": {
             "hashes": [
@@ -119,7 +123,7 @@
                 "sha256:fd096eb7ffef17c456cfa587523c5f92321ae02427ff955bebe9e3c63bc9f0da",
                 "sha256:fe754d231288e1e64323cfad462fcee8f0288654c10bdf4f603a39ed923bef33"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_version >= '3'",
             "version": "==3.0.3"
         },
         "h11": {
@@ -333,6 +337,15 @@
             "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==1.10.15"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca",
+                "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==1.0.1"
         },
         "sniffio": {
             "hashes": [

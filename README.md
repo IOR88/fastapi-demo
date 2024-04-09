@@ -1,3 +1,3 @@
 ```bash
-docker-compose -f docker-compose.yaml --env-file .env up
+docker-compose -f docker-compose.yaml --env-file .env.docker up
 ```
