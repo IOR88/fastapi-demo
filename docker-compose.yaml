@@ -10,6 +10,7 @@ services:
   celery:
     restart: always
     build: .
+    command: "celery -A app.tasks worker -l INFO"
 
   postgres:
     restart: always
