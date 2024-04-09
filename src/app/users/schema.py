@@ -17,6 +17,10 @@ class SignupRequest(BaseModel):
     password: constr(min_length=8)
 
 
+class TokenAccessTypeEnum(str, Enum):
+    user = 'user'
+
+
 class TokenTypeEnum(str, Enum):
     bearer = 'Bearer'
 
