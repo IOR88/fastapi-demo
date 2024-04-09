@@ -1,4 +1,3 @@
-import time
 from datetime import datetime, timedelta
 from uuid import UUID
 from enum import Enum
@@ -32,6 +31,7 @@ class TokenResponse(BaseModel):
 
 class UserAuth(BaseModel):
     id: UUID
+    email: str
     password: str
 
     class Config:
@@ -51,7 +51,7 @@ class UserAuth(BaseModel):
         token = jwt.encode(
             {
                 "exp": datetime.utcnow() + timedelta(days=1),
-                "user_id": str(self.id),
+                "sub": str(self.id),
                 "access": TokenAccessTypeEnum.user,
             },
             settings.JWT_SECRET,

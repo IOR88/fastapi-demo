@@ -13,7 +13,7 @@ asyncpg = "*"
 sqlalchemy = {extras = ["asyncio"] }
 psycopg2-binary = "*"
 argon2-cffi = "*"
-jose = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
 
 [requires]
 python_version = "3.10"

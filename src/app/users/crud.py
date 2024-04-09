@@ -5,8 +5,8 @@ from app.users import models, schema
 from app.utils import sql_create_data
 
 
-async def get_user_by_email(db_session: AsyncSession, email: str) -> typing.Tuple[bool, typing.Union[models.User, None]]:
-    db_user = (await db_session.scalars(select(models.User).where(models.User.email == email))).first()
+async def get_user_by_user_id(db_session: AsyncSession, user_id: str) -> typing.Tuple[bool, typing.Union[models.User, None]]:
+    db_user = (await db_session.scalars(select(models.User).where(models.User.id == user_id))).first()
     if db_user:
         return True, db_user
     return False, None
