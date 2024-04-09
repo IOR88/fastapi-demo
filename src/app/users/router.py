@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 from app.dependencies.dbsession import db_session_dep
-from app.users import schema
+from app.users import schema, crud
 from app.schema import BasicMessage
 
 router = APIRouter(
@@ -25,15 +25,15 @@ async def me(
 async def signup(db_session: db_session_dep,
                  data: schema.SignupRequest):
     try:
-        crud.create_user(db_session, data)
-        return schema.BasicMessage(detail="Sign-up success")
+        await crud.create_user(db_session, data)
+        return BasicMessage(detail="Sign-up success")
     except Exception as e:
         raise HTTPException(400, str(e))
 
 
 @router.post("/signin", response_model=schema.TokenResponse)
 async def signin(db_session: db_session_dep,
-                 data: schema.SigninRequest = Depends()):
+                 data: schema.SignupRequest):
     obj = crud.get_user_by_email(db_session, data.email)
     if obj:
         user = schema.UserAuth.from_orm(obj)
