@@ -12,6 +12,8 @@ fastapi-demo = {file = ".", editable = true}
 asyncpg = "*"
 sqlalchemy = {extras = ["asyncio"] }
 psycopg2-binary = "*"
+argon2-cffi = "*"
+jose = "*"
 
 [requires]
 python_version = "3.10"

@@ -2,6 +2,7 @@ import os
 import logging
 from datetime import timezone
 from dotenv import load_dotenv
+from jose.constants import ALGORITHMS
 
 
 load_dotenv()
@@ -45,6 +46,7 @@ LOG_LEVEL = env.get('LOG_LEVEL')
 logging.basicConfig(format=LOG_FORMAT, level=LOG_LEVEL)
 
 JWT_SECRET = env.get('JWT_SECRET')
+JWT_ALGORITHM = ALGORITHMS.HS256
 
 # postgres
 POSTGRES_HOST = env.get('POSTGRES_HOST')
