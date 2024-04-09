@@ -1,19 +1,19 @@
 import typing
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.users import models, schema
+from app.utils import sql_create_data
 
 
-async def get_user_by_email(db: AsyncSession, email: str) -> typing.Tuple[bool, typing.Union[models.User, None]]:
-    db_user = await db.query(models.User).filter(models.User.email == email).first()
+async def get_user_by_email(db_session: AsyncSession, email: str) -> typing.Tuple[bool, typing.Union[models.User, None]]:
+    db_user = (await db_session.scalars(select(models.User).where(models.User.email == email))).first()
     if db_user:
         return True, db_user
     return False, None
 
 
-async def create_user(db: AsyncSession, user: schema.SignupRequest) -> bool:
+async def create_user(db_session: AsyncSession, user: schema.SignupRequest) -> bool:
     data = user.dict()
     data['password'] = schema.argon_ph.hash(data['password'])
-    db_user = models.User(**data)
-    await db.add(db_user)
-    db.commit()
+    await sql_create_data(db_session, models.User(**data))
     return True
